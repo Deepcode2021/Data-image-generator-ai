@@ -18,25 +18,40 @@
       				margin-top: 5%;
        align-item:center;
       }
+.hw{
+width: 10%;
+  height: 40px;
+  padding: 0px;
+  border: 2px solid #A8A8F0;
+  border-radius: 100px;
+}
   </style>
 </head>
 <body>
 <h1 style="text-align: center; color: white;">Test your phone's ability more coming soon...</h1>
-
+<form>
+     <div class="hw"> Height: <input type="number" id="height-input"></div>
+     <div class="hw">  Width: <input type="number" id="width-input"></div>
+      <input type="submit" value="Submit" onclick="changeCanvasSize()">
+    </form>
 <button onclick="generateImage()" class="btn">Generate Image</button>
 <button onclick="downloadImage()" class="btn">Download Image</button>
 <p id="timer" style="color: white;">Time elapsed:0 seconds</p>
 <img id="randomImage" src="">
 <script>
-				
+	function changeCanvasSize() {
+        // Get the input values for the canvas height and width
+        var canvasHeight = document.getElementById("height-input").value;
+        var canvasWidth = document.getElementById("width-input").value;
+			
   function generateImage() {
   timer.innerHTML = "Time elapsed: " + "Loading...";
         // Create a canvas element
         var startTime = Date.now();
         
         var canvas = document.createElement("canvas");
-        canvas.width = 500;
-        canvas.height = 600;
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
         
 
         // Get the canvas context
