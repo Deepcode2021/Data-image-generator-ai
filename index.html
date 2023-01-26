@@ -44,7 +44,7 @@ color: white;
         // Get the input values for the canvas height and width
         var canvasHeight = document.getElementById("height-input").value;
         var canvasWidth = document.getElementById("width-input").value;
-       }
+       
   function generateImage() {
   timer.innerHTML = "Time elapsed: " + "Loading...";
         // Create a canvas element
@@ -86,6 +86,7 @@ color: white;
         return color;
         
         }
+}
   function downloadImage() {
     var link = document.createElement("a");
     link.download = "randomImage";
