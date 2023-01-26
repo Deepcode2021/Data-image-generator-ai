@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Data Image Generator</title>
+  <style>
+  				body {
+  								background: black;
+  				}
+      .btn{
+      width: 10%;
+  height: 40px;
+  padding: 0px;
+  border: 2px solid #A8A8F0;
+  border-radius: 100px;
+      				background: linear-gradient(to right , #080c2e, #7a20bd);
+      				color: white;
+      				margin-top: 1%;
+      }
+  </style>
+</head>
+<body>
+<button onclick="generateImage()" class="btn">Generate Image</button>
+<button onclick="downloadImage()" class="btn">Download Image</button>
+<p id="timer" style="color: white;">Time elapsed:0 seconds</p>
+<img id="randomImage" src="">
+<script>
+				
+  function generateImage() {
+  timer.innerHTML = "Time elapsed: " + "Loading...";
+        // Create a canvas element
+        var startTime = Date.now();
+        
+        var canvas = document.createElement("canvas");
+        canvas.width = 500;
+        canvas.height = 500;
+        
+
+        // Get the canvas context
+        var ctx = canvas.getContext("2d");
+
+        // Fill the canvas with random data
+        for (var i = 0; i < canvas.width; i++) {
+          for (var j = 1; j < canvas.height; j++) {
+            ctx.fillStyle = getRandomColor();
+            ctx.fillRect(i, j, 10, 1);
+          }
+        }
+
+        // Set the generated image as the src of the img element
+        document.getElementById("randomImage").src = canvas.toDataURL();
+        randomImage.onload = function() {
+    var endTime = Date.now();
+    let elapsedTime = (endTime - startTime) / 1000;
+    timer.innerHTML = "Time elapsed: " + elapsedTime + " seconds";
+      }
+        
+      }
+
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        
+        return color;
+        
+        }
+  function downloadImage() {
+    var link = document.createElement("a");
+    link.download = "randomImage";
+    
+    link.click();
+  }
+ 
+</script>
+</body>
+</html>
