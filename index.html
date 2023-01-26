@@ -3,6 +3,7 @@
 <html>
 <head>
 <meta name="google-site-verification" content="P2Q9gNeWPsQfv1_-4aL6rRwTJ7yRJhXSbkMPsd4zdPA" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Data Image Generator</title>
   <style>
   				body {
@@ -16,6 +17,7 @@
   border-radius: 100px;
       				background: linear-gradient(to right , #080c2e, #7a20bd);
       				color: white;
+margin-left:10%;
       				margin-top: 5%;
        align-item:center;
       }
@@ -35,7 +37,7 @@ color: white;
 <button onclick="generateImage()" class="btn">Generate Image</button>
 <button onclick="downloadImage()" class="btn">Download Image</button>
 <p id="timer" style="color: white;">Time elapsed:0 seconds</p>
-<img id="randomImage" src="">
+<img id="randomImage" src="" alt="Image">
 <script>
 	
   function generateImage() {
